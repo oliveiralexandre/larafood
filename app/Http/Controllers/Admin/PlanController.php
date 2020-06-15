@@ -55,16 +55,25 @@ class PlanController extends Controller
 
     public function destroy($url)
     {
-        $plan = $this->repository->where('url', $url)->first();
-        Alert::success('Plano Deletado com Sucesso!');
+        $plan = $this->repository
+                        ->with('details')
+                        ->where('url', $url)
+                        ->first();
+
         if (!$plan)
             return redirect()->back();
+
+        if ($plan->details->count() > 0) {
+            return redirect()
+                        ->back()
+                        ->with('error', 'Existem detahes vinculados a esse plano, portanto não pode deletar');
+        }
 
         $plan->delete();
 
         return redirect()->route('plans.index');
     }
-
+    
     public function search(Request $request)
     {
         $filters = $request->except('_token');

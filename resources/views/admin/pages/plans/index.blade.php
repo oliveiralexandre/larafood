@@ -43,9 +43,9 @@
                                R$ {{ number_format($plan->price, 2, ',', '.') }}
                             </td>
                             <td style="width=10px">
-                                <a href="{{ route('details.plan.index', $plan->url) }}" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
-                                <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                                <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('details.plan.index', $plan->url) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Detalhes do plano"><i class="fas fa-info-circle"></i></a>
+                                <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Ver e Deletar"><i class="fas fa-eye"></i></a>
                             </td>
 
                         </tr>

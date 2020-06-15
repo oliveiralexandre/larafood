@@ -20,7 +20,7 @@ class PlanObserver
     }
 
     /**
-     * Handle the plan "updated" event.
+     * Handle the plan "updating" event.
      *
      * @param  \App\Models\Plan  $plan
      * @return void
@@ -29,5 +29,4 @@ class PlanObserver
     {
         $plan->url = Str::kebab($plan->name);
     }
-
 }
